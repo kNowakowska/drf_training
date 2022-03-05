@@ -17,5 +17,7 @@ from django.urls import path
 from myapp import views
 
 urlpatterns = [
-    path('employees/', views.employee_view)
+    path('employees/', views.employee_view),
+    path('students/', views.student_list),
+    path('students/<int:pk>', views.student_detail)
 ]
