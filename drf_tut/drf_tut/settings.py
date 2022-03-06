@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'myapp',
-    'passengerApp'
+    'passengerApp',
+    'studentApp'
 ]
 
 MIDDLEWARE = [
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'drf_tut.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'passengers_db',
+        'NAME': 'drf_db',
         'USER': 'root',
         'PASSWORD': 'admin'
     }
