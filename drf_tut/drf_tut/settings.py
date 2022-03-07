@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'myapp',
     'passengerApp',
-    'studentApp'
+    'studentApp',
+    'courseApp'
 ]
 
 MIDDLEWARE = [
