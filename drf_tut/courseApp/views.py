@@ -29,11 +29,11 @@ class CourseDetails(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.D
         # From RetrieveModelMixin
         return self.retrieve(request, pk)
 
-    def update(self, request, pk):
+    def put(self, request, pk):
         # From UpdateModelMixin
         return self.update(request, pk)
 
-    def remove(self, request, pk):
+    def delete(self, request, pk):
         # From DestroyModelMixin
         return self.destroy(request, pk)
 
