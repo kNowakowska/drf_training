@@ -5,10 +5,39 @@ from rest_framework.response import Response
 from django.http import Http404
 from courseApp.models import Course
 from courseApp.serializers import CourseSerializer
+from rest_framework import generics, mixins
 
-# Create your views here.
+
+class CourseList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+    def get(self, request):
+        # From ListModelMixin
+        return self.list(request)
+
+    def post(self, request):
+        # From CreateModelMixin
+        return self.create(request)
 
 
+class CourseDetails(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+    def get(self, request, pk):
+        # From RetrieveModelMixin
+        return self.retrieve(request, pk)
+
+    def update(self, request, pk):
+        # From UpdateModelMixin
+        return self.update(request, pk)
+
+    def remove(self, request, pk):
+        # From DestroyModelMixin
+        return self.destroy(request, pk)
+
+"""
 class CourseList(APIView):
 
     def get(self, request):
@@ -52,3 +81,5 @@ class CourseDetails(APIView):
         course = self.get_object(pk)
         course.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+"""
