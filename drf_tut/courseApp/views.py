@@ -8,6 +8,18 @@ from courseApp.serializers import CourseSerializer
 from rest_framework import generics, mixins
 
 
+class CourseList(generics.ListCreateAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+
+class CourseDetails(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+
+"""
+
 class CourseList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
@@ -37,6 +49,7 @@ class CourseDetails(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.D
         # From DestroyModelMixin
         return self.destroy(request, pk)
 
+"""
 """
 class CourseList(APIView):
 
