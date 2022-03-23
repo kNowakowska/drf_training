@@ -7,6 +7,15 @@ from django.http import Http404
 
 from rest_framework import mixins, generics
 
+from rest_framework import viewsets
+
+
+class StudentViewSet(viewsets.ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+
+"""
 
 class StudentList(generics.ListCreateAPIView):
     queryset = Student.objects.all()
@@ -17,7 +26,7 @@ class StudentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
-
+"""
 """
 class StudentList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
     queryset = Student.objects.all()
