@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'passengerApp',
     'studentApp',
     'courseApp',
-    'nsApp'
+    'nsApp',
+    'customerApp'
 ]
 
 MIDDLEWARE = [
