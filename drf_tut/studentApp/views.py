@@ -8,11 +8,18 @@ from django.http import Http404
 from rest_framework import mixins, generics
 
 from rest_framework import viewsets
+from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination
+
+
+class StudentPagination(PageNumberPagination):
+    page_size = 3
 
 
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
+    pagination_class = StudentPagination
+#     pagination_class = LimitOffsetPagination
 
 
 """
