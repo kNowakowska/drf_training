@@ -21,8 +21,8 @@ class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
     pagination_class = StudentPagination
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['name', 'score']
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['=id', '^name']
 
 
 """
