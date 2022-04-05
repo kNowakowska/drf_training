@@ -3,15 +3,11 @@ from .models import Author, Book
 from .serializers import AuthorSerializer, BookSerializer
 from rest_framework import mixins, generics
 from rest_framework import viewsets
-from rest_framework.authentication import BasicAuthentication
-from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
 
 
 class AuthorList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated, DjangoModelPermissions]
 
     def get(self, request):
         return self.list(request)
